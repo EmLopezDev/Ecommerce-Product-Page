@@ -1,0 +1,64 @@
+@use "../utils/" as u;
+
+.sidebar__container {
+    position: absolute;
+    min-height: 100dvh;
+    width: 100%;
+    inset: 0;
+    background-color: var(--color-black-overlay);
+    z-index: 99;
+    display: none;
+}
+
+.sidebar {
+    width: u.rem(250);
+    height: 100%;
+    background-color: var(--color-white);
+    padding-inline: u.rem(24);
+    padding-block: u.rem(24);
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(56);
+    position: relative;
+    left: -400px;
+    transition: left 200ms ease-in-out;
+
+    @include u.breakpoint(small) {
+        padding-inline: u.rem(40);
+        padding-block: u.rem(40);
+        width: u.rem(300);
+    }
+
+    &.is-open {
+        left: 0;
+    }
+
+    &__button {
+        align-self: flex-start;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__navigation--list {
+        display: flex;
+        flex-direction: column;
+        gap: u.rem(24);
+
+        & a {
+            color: var(--color-grey-950);
+
+            @include u.text-preset-3-bold;
+
+            &:hover {
+                color: var(--color-orange-500);
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .sidebar {
+        right: 0;
+        transition: none;
+    }
+}

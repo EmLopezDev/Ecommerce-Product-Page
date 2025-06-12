@@ -1,0 +1,110 @@
+@use "../utils/" as u;
+
+.header {
+    min-width: u.rem(327);
+    max-width: u.rem(1100);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: u.rem(24);
+
+    @include u.breakpoint(small) {
+        padding-block-end: 48;
+        padding-inline: 0;
+        border-bottom: 1px solid var(--color-grey-100);
+    }
+
+    @include u.breakpoint(medium) {
+        padding-block-end: 0;
+        align-items: flex-start;
+        height: u.rem(99);
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+        gap: u.rem(16);
+
+        @include u.breakpoint(medium) {
+            height: 100%;
+            padding-block-start: u.rem(12);
+            align-items: flex-start;
+            gap: u.rem(56);
+        }
+
+        &--hamburger {
+            display: flex;
+            border: none;
+            background-color: transparent;
+            width: u.rem(16);
+            height: u.rem(16);
+
+            @include u.breakpoint(medium) {
+                display: none;
+            }
+        }
+
+        &--logo {
+            height: u.rem(20);
+        }
+
+        &--list {
+            display: none;
+
+            @include u.breakpoint(medium) {
+                display: flex;
+            }
+
+            &-links {
+                display: flex;
+                gap: u.rem(32);
+            }
+
+            &-link {
+                & a {
+                    display: flex;
+                    height: u.rem(62);
+                    color: var(--color-grey-500);
+
+                    @include u.text-preset-4;
+                }
+
+                &:hover {
+                    border-bottom: 2px solid var(--color-orange-500);
+                }
+            }
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: u.rem(24);
+
+        @include u.breakpoint(small) {
+            gap: u.rem(48);
+        }
+
+        @include u.breakpoint(medium) {
+            height: u.rem(50);
+        }
+
+        &--cart {
+            width: u.rem(20);
+            height: u.rem(20);
+            border: none;
+            background-color: transparent;
+        }
+
+        &--avatar {
+            width: clamp(1.5rem, -0.027rem + 7.471vw, 3.125rem);
+            height: clamp(1.5rem, -0.027rem + 7.471vw, 3.125rem);
+
+            &:hover {
+                border: 2px solid var(--color-orange-500);
+                border-radius: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@use "functions" as f;
+
+$font-size-xs: f.rem(12);
+$font-size-sm: f.rem(13);
+$font-size-md: f.rem(15);
+$font-size-lg: f.rem(16);
+$font-size-xl: f.rem(28);
+$font-size-xxl: f.rem(44);
+$font-weight-bold: 700;
+$line-height-xs: f.rem(15);
+$line-height-sm: f.rem(16);
+$line-height-md: f.rem(26);
+$line-height-lg: f.rem(32);
+$line-height-xl: f.rem(48);
+$letter-spacing-none: 0;
+$letter-spacing-sm: f.rem(1.85);
+$letter-spacing-md: f.rem(2);
+
+@mixin text-preset-1 {
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xl;
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-2 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-lg;
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-3 {
+    font-size: $font-size-lg;
+    line-height: $line-height-md;
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-3-bold {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-md;
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-4 {
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-5 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-sm;
+    letter-spacing: $letter-spacing-md;
+}
+
+@mixin text-preset-6 {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xs;
+    letter-spacing: $letter-spacing-sm;
+}

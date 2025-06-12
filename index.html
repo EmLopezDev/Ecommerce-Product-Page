@@ -13,40 +13,71 @@
             sizes="32x32"
             href="./images/favicon-32x32.png"
         />
-
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="./dist/styles.css"
+        />
         <title>Frontend Mentor | E-commerce product page</title>
     </head>
     <body>
-        <header>
-            <div>
-                <button>
+        <header class="header">
+            <div class="header__navigation">
+                <button class="header__navigation--hamburger">
                     <img
                         src="./images/icon-menu.svg"
                         alt=""
                     />
                 </button>
                 <img
+                    class="header__navigation--logo"
                     src="./images/logo.svg"
                     alt=""
                 />
-                <nav style="display: none">
-                    <ul>
-                        <li><a href="">Collection</a></li>
-                        <li><a href="">Men</a></li>
-                        <li><a href="">Women</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contact</a></li>
+                <nav
+                    class="header__navigation--list"
+                    aria-label="desktop-menu"
+                >
+                    <ul class="header__navigation--list-links">
+                        <li class="header__navigation--list-link">
+                            <a href="">Collection</a>
+                        </li>
+                        <li class="header__navigation--list-link">
+                            <a href="">Men</a>
+                        </li>
+                        <li class="header__navigation--list-link">
+                            <a href="">Women</a>
+                        </li>
+                        <li class="header__navigation--list-link">
+                            <a href="">About</a>
+                        </li>
+                        <li class="header__navigation--list-link">
+                            <a href="">Contact</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <div>
-                <button>
+            <div class="header__user">
+                <button class="header__user--cart">
                     <img
                         src="./images/icon-cart.svg"
                         alt=""
                     />
                 </button>
                 <img
+                    class="header__user--avatar"
                     src="./images/image-avatar.png"
                     alt=""
                 />
@@ -62,6 +93,7 @@
                     <img
                         src="./images/image-product-1.jpg"
                         alt=""
+                        width="50%"
                     />
                     <img
                         src="./images/icon-next.svg"
@@ -113,5 +145,37 @@
                 </button>
             </section>
         </main>
+        <aside class="sidebar__container">
+            <div class="sidebar">
+                <button class="sidebar__button">
+                    <img
+                        src="./images/icon-close.svg"
+                        alt=""
+                    />
+                </button>
+                <nav
+                    class="sidebar__navigation"
+                    aria-label="mobile-menu"
+                >
+                    <ul class="sidebar__navigation--list">
+                        <li class="sidebar__navigation--list-link">
+                            <a href="">Collection</a>
+                        </li>
+                        <li class="sidebar__navigation--list-link">
+                            <a href="">Men</a>
+                        </li>
+                        <li class="sidebar__navigation--list-link">
+                            <a href="">Women</a>
+                        </li>
+                        <li class="sidebar__navigation--list-link">
+                            <a href="">About</a>
+                        </li>
+                        <li class="sidebar__navigation--list-link">
+                            <a href="">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
     </body>
 </html>

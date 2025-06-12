@@ -1,0 +1,42 @@
+@use "../utils/" as u;
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+$font-family: "Kumbh Sans";
+
+body {
+    min-height: 100dvh;
+    width: 100%;
+    font-family: $font-family, sans-serif;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: u.rem(24);
+    padding-block-end: u.rem(48);
+    position: relative;
+
+    @include u.breakpoint(small) {
+        gap: u.rem(48);
+        padding-inline: u.rem(80);
+    }
+}
+
+button {
+    font-family: $font-family, sans-serif;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
