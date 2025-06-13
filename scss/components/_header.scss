@@ -13,13 +13,12 @@
     background: hsla(0, 100%, 100%, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 5px 5px -5px var(--color-grey-500-shadow);
+    box-shadow: 0 8px 8px -8px var(--color-grey-500-shadow);
     padding: u.rem(24);
 
     @include u.breakpoint(small) {
         padding-block-end: 48;
         padding-inline: 0;
-        border-bottom: 1px solid var(--color-grey-100);
     }
 
     @include u.breakpoint(medium) {

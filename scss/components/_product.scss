@@ -8,6 +8,10 @@
     flex-direction: column;
     gap: u.rem(24);
 
+    @include u.breakpoint(small) {
+        gap: u.rem(48);
+    }
+
     &__lightbox {
         height: u.rem(400);
         width: 100%;
@@ -47,12 +51,20 @@
                 background: url("../images/image-product-1.jpg") no-repeat
                     center 60%;
                 background-size: cover;
+
+                @include u.breakpoint(small) {
+                    border-radius: u.rem(15);
+                }
             }
         }
     }
 
     &__details {
         padding-inline: u.rem(24);
+
+        @include u.breakpoint(small) {
+            padding-inline: 0;
+        }
 
         &--header {
             display: flex;
@@ -63,10 +75,20 @@
 
             @include u.text-preset-2;
 
+            @include u.breakpoint(small) {
+                margin-block-end: u.rem(24);
+                @include u.text-preset-1;
+            }
+
             &-sub {
                 color: var(--color-grey-500);
+                text-transform: uppercase;
 
                 @include u.text-preset-6;
+
+                @include u.breakpoint(small) {
+                    @include u.text-preset-5;
+                }
             }
         }
 
@@ -75,6 +97,10 @@
             margin-block-end: u.rem(24);
 
             @include u.text-preset-4;
+
+            @include u.breakpoint(small) {
+                @include u.text-preset-3;
+            }
         }
 
         &--price {
@@ -82,6 +108,12 @@
             align-items: center;
             justify-content: space-between;
             margin-block-end: u.rem(32);
+
+            @include u.breakpoint(small) {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: u.rem(8);
+            }
 
             &-current {
                 display: flex;
@@ -119,6 +151,11 @@
         flex-direction: column;
         gap: u.rem(16);
 
+        @include u.breakpoint(small) {
+            flex-direction: row;
+            gap: u.rem(8);
+        }
+
         &--quantity {
             display: flex;
             align-items: center;
@@ -127,6 +164,7 @@
             background-color: var(--color-grey-50);
             border-radius: u.rem(10);
             padding-block: u.rem(16);
+            width: 100%;
 
             &-button {
                 display: flex;
@@ -176,6 +214,7 @@
             color: var(--color-grey-950);
             background-color: var(--color-orange-500);
             box-shadow: 0 20px 50px 0 var(--color-orange-500-shadow);
+            width: 100%;
 
             @include u.text-preset-3-bold;
         }
