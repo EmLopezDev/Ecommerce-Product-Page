@@ -83,9 +83,9 @@
                 />
             </div>
         </header>
-        <main>
-            <section>
-                <div>
+        <main class="product">
+            <section class="product__lighbox">
+                <difv class="product__lightbox--selected">
                     <img
                         src="./images/icon-previous.svg"
                         alt=""
@@ -99,50 +99,56 @@
                         src="./images/icon-next.svg"
                         alt=""
                     />
-                </div>
-                <div>
+                </difv>
+                <div class="product__lightbox--additional">
                     <!-- Thumbnails go here -->
                 </div>
             </section>
-            <section>
-                <h1>
-                    <span>Sneaker Company</span>
+            <section class="product__details">
+                <h1 class="product__details--header">
+                    <span class="product__details--header-sub">
+                        Sneaker Company
+                    </span>
                     Fall Limited Edition Sneakers
                 </h1>
-                <p>
+                <p class="product__details--info">
                     These low-profile sneakers are your perfect casual wear
                     companion. Featuring a durable rubber outer sole, they’ll
                     withstand everything the weather can offer.
                 </p>
-                <div>
-                    <span>
+                <div class="product__details--price">
+                    <span class="product__details--price-current">
                         $125.00
-                        <span>50%</span>
+                        <span class="product__details--price-discount">
+                            50%
+                        </span>
                     </span>
-                    <span>$250.00</span>
+                    <span class="product__details--price-old">$250.00</span>
                 </div>
-                <div>
-                    <button>
+                <div class="product__buttons">
+                    <div class="product__buttons--quantity">
+                        <button class="product__buttons--quantity-button minus">
+                            <img
+                                src="./images/icon-minus.svg"
+                                alt=""
+                            />
+                        </button>
+                        <span class="product__buttons--quantity-amount">0</span>
+                        <button class="product__buttons--quantity-button plus">
+                            <img
+                                src="./images/icon-plus.svg"
+                                alt=""
+                            />
+                        </button>
+                    </div>
+                    <button class="product__buttons--add">
                         <img
-                            src="./images/icon-minus.svg"
+                            src="./images/icon-cart.svg"
                             alt=""
                         />
-                    </button>
-                    <span>0</span>
-                    <button>
-                        <img
-                            src="./images/icon-plus.svg"
-                            alt=""
-                        />
+                        Add to cart
                     </button>
                 </div>
-                <button>
-                    <img
-                        src="./images/icon-cart.svg"
-                        alt=""
-                    />
-                    Add to cart
-                </button>
             </section>
         </main>
         <aside class="sidebar__container">
