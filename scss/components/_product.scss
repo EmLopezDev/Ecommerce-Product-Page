@@ -2,7 +2,7 @@
 
 .product {
     min-width: u.rem(327);
-    max-width: u.rem(1100);
+    max-width: u.rem(1300);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -12,9 +12,23 @@
         gap: u.rem(48);
     }
 
+    @include u.breakpoint(medium) {
+        flex-direction: row;
+        gap: u.rem(128);
+        margin-block-start: u.rem(48);
+        padding-inline: u.rem(40);
+    }
+
     &__lightbox {
         height: u.rem(400);
         width: 100%;
+
+        @include u.breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            gap: u.rem(32);
+            height: u.rem(500);
+        }
 
         &--selected {
             position: relative;
@@ -43,6 +57,10 @@
                     right: u.rem(16);
                     padding-inline-start: u.rem(5);
                 }
+
+                @include u.breakpoint(medium) {
+                    display: none;
+                }
             }
 
             &-img {
@@ -57,6 +75,47 @@
                 }
             }
         }
+
+        &--additional {
+            display: none;
+
+            @include u.breakpoint(medium) {
+                display: flex;
+                justify-content: space-between;
+                gap: u.rem(32);
+            }
+
+            &-thumbnail {
+                border: none;
+                background-color: transparent;
+                width: u.rem(88);
+                height: u.rem(88);
+
+                & img {
+                    width: 100%;
+                    border-radius: u.rem(10);
+                }
+
+                &.selected {
+                    border: 2px solid var(--color-orange-500);
+                    border-radius: u.rem(10);
+
+                    & img {
+                        opacity: 0.4;
+                        border-radius: u.rem(8);
+                    }
+                }
+
+                &:hover:not(.selected) {
+                    border: 2px solid var(--color-orange-500);
+                    border-radius: u.rem(10);
+
+                    & img {
+                        border-radius: u.rem(8);
+                    }
+                }
+            }
+        }
     }
 
     &__details {
@@ -64,6 +123,12 @@
 
         @include u.breakpoint(small) {
             padding-inline: 0;
+        }
+
+        @include u.breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         &--header {
@@ -217,6 +282,10 @@
             width: 100%;
 
             @include u.text-preset-3-bold;
+
+            &:hover {
+                background-color: var(--color-orange-300);
+            }
         }
     }
 }
