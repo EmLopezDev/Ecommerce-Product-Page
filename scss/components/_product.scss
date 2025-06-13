@@ -14,7 +14,7 @@
 
     @include u.breakpoint(medium) {
         flex-direction: row;
-        gap: u.rem(128);
+        gap: u.rem(80);
         margin-block-start: u.rem(48);
         padding-inline: u.rem(40);
     }
@@ -120,6 +120,7 @@
 
     &__details {
         padding-inline: u.rem(24);
+        width: 100%;
 
         @include u.breakpoint(small) {
             padding-inline: 0;
