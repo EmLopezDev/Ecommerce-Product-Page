@@ -7,6 +7,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 1;
+    inset: 0;
+    background: hsla(0, 100%, 100%, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 5px 5px -5px var(--color-grey-500-shadow);
     padding: u.rem(24);
 
     @include u.breakpoint(small) {
