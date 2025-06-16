@@ -131,12 +131,16 @@
         padding-block: u.rem(24);
         border-radius: u.rem(10);
         box-shadow: 0 20px 50px 0px hsla(220, 13%, 13%, 10%);
+        display: none;
 
         @include u.breakpoint(small) {
             right: u.rem(-70);
             top: u.rem(80);
             left: initial;
             width: u.rem(400);
+        }
+        &.is-open {
+            display: block;
         }
 
         &--heading {

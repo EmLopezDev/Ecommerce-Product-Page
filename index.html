@@ -30,12 +30,19 @@
             rel="stylesheet"
             href="./dist/styles.css"
         />
+        <script
+            defer
+            src="./js/main.mjs"
+        ></script>
         <title>Frontend Mentor | E-commerce product page</title>
     </head>
     <body>
         <header class="header">
             <div class="header__navigation">
-                <button class="header__navigation--hamburger">
+                <button
+                    id="hamburger"
+                    class="header__navigation--hamburger"
+                >
                     <img
                         src="./images/icon-menu.svg"
                         alt=""
@@ -70,7 +77,10 @@
                 </nav>
             </div>
             <div class="header__user">
-                <button class="header__user--cart">
+                <button
+                    id="cart-checkout"
+                    class="header__user--cart"
+                >
                     <svg
                         width="22"
                         height="20"
@@ -88,7 +98,10 @@
                     alt=""
                 />
             </div>
-            <aside class="header__cart">
+            <aside
+                id="cart"
+                class="header__cart"
+            >
                 <div class="header__cart--heading">Cart</div>
                 <div class="header__cart--content">Your cart is empty.</div>
             </aside>
@@ -206,9 +219,18 @@
                 </div>
             </section>
         </main>
-        <aside class="sidebar__container">
-            <div class="sidebar">
-                <button class="sidebar__button">
+        <aside
+            id="sidebar-container"
+            class="sidebar__container"
+        >
+            <div
+                id="sidebar"
+                class="sidebar"
+            >
+                <button
+                    id="close"
+                    class="sidebar__button"
+                >
                     <img
                         src="./images/icon-close.svg"
                         alt=""
