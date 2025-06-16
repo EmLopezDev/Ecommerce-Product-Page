@@ -101,6 +101,11 @@
             height: u.rem(20);
             border: none;
             background-color: transparent;
+            fill: var(--color-grey-500);
+
+            &:hover {
+                fill: var(--color-grey-950);
+            }
         }
 
         &--avatar {
