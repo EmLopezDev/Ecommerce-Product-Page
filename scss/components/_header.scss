@@ -121,7 +121,8 @@
     }
 
     &__cart {
-        height: u.rem(350);
+        min-height: u.rem(350);
+        height: 100%;
         position: absolute;
         top: 110%;
         right: 0;
@@ -148,15 +149,85 @@
             border-bottom: 1px solid var(--color-grey-100);
             padding-inline: u.rem(14);
 
-            @include u.text-preset-3-bold;
+            & h5 {
+                color: var(--color-grey-950);
+
+                @include u.text-preset-3-bold;
+            }
         }
 
         &--content {
             height: calc(100% - 51px);
+            padding-inline: u.rem(24);
+            padding-block-start: u.rem(24);
             display: flex;
-            justify-content: center;
+
+            &.empty {
+                justify-content: center;
+                align-items: center;
+                color: var(--color-grey-500);
+
+                @include u.text-preset-3-bold;
+            }
+
+            &.filled {
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+
+        &--list {
+            display: flex;
+            flex-direction: column;
+            gap: u.rem(8);
+        }
+
+        &--item {
+            display: flex;
             align-items: center;
-            color: var(--color-grey-500);
+            gap: u.rem(16);
+
+            &-img {
+                width: u.rem(50);
+                border-radius: u.rem(4);
+            }
+
+            &-description {
+                display: flex;
+                flex-direction: column;
+                margin-right: auto;
+                color: var(--color-grey-500);
+
+                @include u.text-preset-3;
+
+                &-price {
+                    display: flex;
+                    gap: u.rem(8);
+                }
+
+                &-total {
+                    color: var(--color-grey-950);
+                    @include u.text-preset-3-bold;
+                }
+            }
+
+            &-delete {
+                border: none;
+                background-color: transparent;
+            }
+        }
+
+        &--checkout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: u.rem(16);
+            height: u.rem(56);
+            border-radius: u.rem(10);
+            border: none;
+            color: var(--color-grey-950);
+            background-color: var(--color-orange-500);
+            width: 100%;
 
             @include u.text-preset-3-bold;
         }

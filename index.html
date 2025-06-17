@@ -99,11 +99,16 @@
                 />
             </div>
             <aside
-                id="cart"
+                id="cart-modal"
                 class="header__cart"
             >
-                <div class="header__cart--heading">Cart</div>
-                <div class="header__cart--content">Your cart is empty.</div>
+                <header class="header__cart--heading">
+                    <h5>Cart</h5>
+                </header>
+                <div
+                    id="cart-content"
+                    class="header__cart--content"
+                ></div>
             </aside>
         </header>
         <main class="product">
@@ -189,21 +194,35 @@
                 </div>
                 <div class="product__buttons">
                     <div class="product__buttons--quantity">
-                        <button class="product__buttons--quantity-button minus">
+                        <button
+                            id="quantity-minus"
+                            class="product__buttons--quantity-button minus"
+                        >
                             <img
                                 src="./images/icon-minus.svg"
                                 alt=""
                             />
                         </button>
-                        <span class="product__buttons--quantity-amount">0</span>
-                        <button class="product__buttons--quantity-button plus">
+                        <span
+                            id="quantity"
+                            class="product__buttons--quantity-amount"
+                        >
+                            0
+                        </span>
+                        <button
+                            id="quantity-plus"
+                            class="product__buttons--quantity-button plus"
+                        >
                             <img
                                 src="./images/icon-plus.svg"
                                 alt=""
                             />
                         </button>
                     </div>
-                    <button class="product__buttons--add">
+                    <button
+                        id="add-cart"
+                        class="product__buttons--add"
+                    >
                         <svg
                             width="22"
                             height="20"
