@@ -103,9 +103,31 @@
             border: none;
             background-color: transparent;
             fill: var(--color-grey-500);
+            position: relative;
 
             &:hover {
                 fill: var(--color-grey-950);
+            }
+
+            &-quantity {
+                position: absolute;
+                background-color: var(--color-orange-500);
+                color: var(--color-white);
+                padding-inline: u.rem(8);
+                padding-block: u.rem(1);
+                border-radius: u.rem(8);
+                top: u.rem(-6);
+                display: none;
+
+                @include u.text-preset-7;
+            }
+
+            &.filled {
+                fill: var(--color-grey-950);
+
+                & span {
+                    display: inline;
+                }
             }
         }
 
@@ -133,7 +155,6 @@
         border-radius: u.rem(10);
         box-shadow: 0 20px 50px 0px hsla(220, 13%, 13%, 10%);
         display: none;
-        border: none;
 
         @include u.breakpoint(small) {
             right: u.rem(-70);

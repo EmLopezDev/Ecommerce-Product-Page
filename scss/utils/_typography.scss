@@ -62,3 +62,9 @@ $letter-spacing-md: f.rem(2);
     line-height: $line-height-xs;
     letter-spacing: $letter-spacing-sm;
 }
+
+@mixin text-preset-7 {
+    font-size: f.rem(10);
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-none;
+}

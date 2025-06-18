@@ -1,4 +1,5 @@
 const cartCheckoutButton = document.getElementById("cart-checkout");
+const cartQuantitySpan = document.getElementById("cart-quantity");
 const cartModal = document.getElementById("cart-modal");
 const cartContent = document.getElementById("cart-content");
 const hamburger = document.getElementById("hamburger");
@@ -21,6 +22,26 @@ const product = {
 };
 
 const cart = [];
+
+const cartQuantity = () => {
+    if (!cart.length) {
+        cartCheckoutButton.classList.remove("filled");
+        cartQuantitySpan.innerText = "";
+    } else {
+        cartCheckoutButton.classList.add("filled");
+        const totalQuantity = cart.reduce((acc, item) => {
+            return acc + item.quantity;
+        }, 0);
+        console.log(totalQuantity);
+        cartQuantitySpan.innerText = totalQuantity;
+    }
+};
+
+const emptyCart = () => {
+    cartContent.classList.remove("filled");
+    cartContent.classList.add("empty");
+    cartContent.innerText = "Your cart is empty";
+};
 
 const addToCart = () => {
     cartContent.classList.remove("empty");
@@ -65,9 +86,27 @@ const addToCart = () => {
                 </li>`;
         })
         .join("");
-
     cartContent.appendChild(ul);
     cartContent.appendChild(checkoutButton);
+
+    const deleteButton = document.querySelector(".header__cart--item-delete");
+    deleteButton.addEventListener("click", deleteItem);
+};
+
+const deleteItem = (e) => {
+    const id = e.currentTarget.id;
+    const index = cart.filter((item, idx) => {
+        if (item.id === id) {
+            return idx;
+        }
+    });
+    cart.splice(index, index + 1);
+    if (!cart.length) {
+        emptyCart();
+    } else {
+        addToCart();
+    }
+    cartQuantity();
 };
 
 const showSidebar = () => {
@@ -98,7 +137,6 @@ const addOrUpdateCart = () => {
         cart.filter((cartItem) => cartItem.id === product.id).map(
             (item) => (item.quantity = item.quantity + quantity)
         );
-        console.log(cart);
     } else {
         cart.push(product);
     }
@@ -137,6 +175,7 @@ addToCartButton.addEventListener("click", () => {
         product.quantity = quantity;
         addOrUpdateCart();
     }
+    cartQuantity();
     quantity = 0;
     quantitySpan.textContent = quantity;
 });
