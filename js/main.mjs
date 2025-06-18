@@ -15,19 +15,59 @@ let quantity = 0;
 const product = {
     id: 1,
     name: "Fall Limited Edition Sneakers",
+    img: "../images/image-product-1-thumbnail.jpg",
     price: 125.0,
     quantity: 0,
 };
 
-const cart = [product];
+const cart = [];
 
-const showCartContent = () => {
-    if (!cart.length) {
-        cartContent.classList.add("empty");
-        cartContent.innerText = "Your cart is empty.";
-    } else {
-        cart.map(item);
-    }
+const addToCart = () => {
+    cartContent.classList.remove("empty");
+    cartContent.classList.add("filled");
+    cartContent.innerHTML = "";
+
+    const ul = document.createElement("ul");
+    ul.className = "header__cart--list";
+
+    const checkoutButton = document.createElement("button");
+    checkoutButton.className = "header__cart--checkout";
+    checkoutButton.setAttribute("id", "checkout-button");
+    checkoutButton.innerText = "Checkout";
+
+    ul.innerHTML = cart
+        .map((item) => {
+            return `
+                <li class="header__cart--item">
+                    <img
+                        class="header__cart--item-img"
+                        src=${item.img}
+                        alt=""
+                    />
+                    <div class="header__cart--item-description">
+                        ${item.name}
+                        <span class="header__cart--item-description-price">
+                            ${Number(item.price)} x ${item.quantity}
+                            <span class="header__cart--item-description-total">
+                                $${item.price * item.quantity}
+                            </span>
+                        </span>
+                    </div>
+                    <button
+                        id=${item.id}
+                        class="header__cart--item-delete"
+                    >
+                        <img
+                            src="./images/icon-delete.svg"
+                            alt=""
+                        />
+                    </button>
+                </li>`;
+        })
+        .join("");
+
+    cartContent.appendChild(ul);
+    cartContent.appendChild(checkoutButton);
 };
 
 const showSidebar = () => {
@@ -45,8 +85,24 @@ const hideSidebar = () => {
 };
 
 const hideShowCart = () => {
-    cartModal.classList.toggle("is-open");
-    showCartContent();
+    if (!cartModal.classList.contains("is-open")) {
+        cartModal.classList.add("is-open");
+    } else {
+        cartModal.classList.remove("is-open");
+    }
+};
+
+const addOrUpdateCart = () => {
+    const [itemExist] = cart.filter((cartItem) => cartItem.id === product.id);
+    if (itemExist) {
+        cart.filter((cartItem) => cartItem.id === product.id).map(
+            (item) => (item.quantity = item.quantity + quantity)
+        );
+        console.log(cart);
+    } else {
+        cart.push(product);
+    }
+    addToCart();
 };
 
 hamburger.addEventListener("click", showSidebar);
@@ -79,43 +135,19 @@ quantityPlus.addEventListener("click", () => {
 addToCartButton.addEventListener("click", () => {
     if (quantity > 0) {
         product.quantity = quantity;
-        cart.push(product);
+        addOrUpdateCart();
     }
     quantity = 0;
     quantitySpan.textContent = quantity;
 });
+
+// window.addEventListener("click", (e) => {
+//     if (!cartModal.contains(e.target)) {
+//     }
+// });
 
 window.addEventListener("resize", () => {
     if (this.innerWidth >= 1100) {
         hideSidebar();
     }
 });
-{
-    /* <>
-    <ul class="header__cart--list">
-        <li class="header__cart--item">
-            <img
-                class="header__cart--item-img"
-                src="./images/image-product-1-thumbnail.jpg"
-                alt=""
-            />
-            <div class="header__cart--item-description">
-                Fall Limited Edition Sneakers
-                <span class="header__cart--item-description-price">
-                    $125.00 x 3
-                    <span class="header__cart--item-description-total">
-                        $375.00
-                    </span>
-                </span>
-            </div>
-            <button class="header__cart--item-delete">
-                <img
-                    src="./images/icon-delete.svg"
-                    alt=""
-                />
-            </button>
-        </li>
-    </ul>
-    <button class="header__cart--checkout">Checkout</button>
-</>; */
-}

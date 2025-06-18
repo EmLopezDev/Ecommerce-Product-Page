@@ -98,7 +98,7 @@
                     alt=""
                 />
             </div>
-            <aside
+            <dialog
                 id="cart-modal"
                 class="header__cart"
             >
@@ -107,9 +107,11 @@
                 </header>
                 <div
                     id="cart-content"
-                    class="header__cart--content"
-                ></div>
-            </aside>
+                    class="header__cart--content empty"
+                >
+                    Your cart is empty
+                </div>
+            </dialog>
         </header>
         <main class="product">
             <section class="product__lightbox">
@@ -281,3 +283,29 @@
         </aside>
     </body>
 </html>
+
+<!-- <ul class="header__cart--list">
+        <li class="header__cart--item">
+            <img
+                class="header__cart--item-img"
+                src="./images/image-product-1-thumbnail.jpg"
+                alt=""
+            />
+            <div class="header__cart--item-description">
+                Fall Limited Edition Sneakers
+                <span class="header__cart--item-description-price">
+                    $125.00 x 3
+                    <span class="header__cart--item-description-total">
+                        $375.00
+                    </span>
+                </span>
+            </div>
+            <button class="header__cart--item-delete">
+                <img
+                    src="./images/icon-delete.svg"
+                    alt=""
+                />
+            </button>
+        </li>
+    </ul>
+    <button class="header__cart--checkout">Checkout</button> -->
