@@ -19,6 +19,8 @@ const imageButtons = document.querySelectorAll(
 
 let quantity = 0;
 
+let productCopyId = 1;
+
 let currentImage = 1;
 
 const product = {
@@ -75,9 +77,9 @@ const addToCart = () => {
                     <div class="header__cart--item-description">
                         ${item.name}
                         <span class="header__cart--item-description-price">
-                            ${Number(item.price)} x ${item.quantity}
+                            $${Number(item.price).toFixed(2)} x ${item.quantity}
                             <span class="header__cart--item-description-total">
-                                $${item.price * item.quantity}
+                                $${(item.price * item.quantity).toFixed(2)}
                             </span>
                         </span>
                     </div>
@@ -96,17 +98,23 @@ const addToCart = () => {
     cartContent.appendChild(ul);
     cartContent.appendChild(checkoutButton);
 
-    const deleteButton = document.querySelector(".header__cart--item-delete");
-    deleteButton.addEventListener("click", deleteItem);
+    const deleteButton = document.querySelectorAll(
+        ".header__cart--item-delete"
+    );
+    deleteButton.forEach((button) =>
+        button.addEventListener("click", deleteItem)
+    );
 };
 
 const deleteItem = (e) => {
     const id = e.currentTarget.id;
-    const index = cart.filter((item, idx) => {
-        if (item.id === id) {
-            return idx;
+    const [index] = cart.reduce((acc, item, idx) => {
+        if (Number(item.id) === Number(id)) {
+            acc.push(idx);
         }
-    });
+        return acc;
+    }, []);
+
     cart.splice(index, index + 1);
     if (!cart.length) {
         emptyCart();
@@ -136,18 +144,6 @@ const hideShowCart = () => {
     } else {
         cartModal.classList.remove("is-open");
     }
-};
-
-const addOrUpdateCart = () => {
-    const [itemExist] = cart.filter((cartItem) => cartItem.id === product.id);
-    if (itemExist) {
-        cart.filter((cartItem) => cartItem.id === product.id).map((item) => {
-            item.quantity = item.quantity + quantity;
-        });
-    } else {
-        cart.push(product);
-    }
-    addToCart();
 };
 
 const changeSelectedImage = () => {
@@ -222,8 +218,12 @@ quantityPlus.addEventListener("click", () => {
 
 addToCartButton.addEventListener("click", () => {
     if (quantity > 0) {
-        product.quantity = quantity;
-        addOrUpdateCart();
+        const productCopy = { ...product };
+        productCopy.quantity = quantity;
+        productCopy.id = productCopyId;
+        cart.push(productCopy);
+        productCopyId++;
+        addToCart();
     }
     cartQuantity();
     quantity = 0;
