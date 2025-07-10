@@ -67,7 +67,7 @@
                 height: 100%;
                 width: 100%;
                 background: url("../images/image-product-1.jpg") no-repeat
-                    center 60%;
+                    center;
                 background-size: cover;
 
                 @include u.breakpoint(small) {

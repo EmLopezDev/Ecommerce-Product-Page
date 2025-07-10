@@ -122,14 +122,23 @@
         <main class="product">
             <section class="product__lightbox">
                 <div class="product__lightbox--selected">
-                    <button class="product__lightbox--selected-button previous">
+                    <button
+                        id="previous-image"
+                        class="product__lightbox--selected-button previous"
+                    >
                         <img
                             src="./images/icon-previous.svg"
                             alt=""
                         />
                     </button>
-                    <div class="product__lightbox--selected-img"></div>
-                    <button class="product__lightbox--selected-button next">
+                    <div
+                        id="product-image"
+                        class="product__lightbox--selected-img"
+                    ></div>
+                    <button
+                        id="next-image"
+                        class="product__lightbox--selected-button next"
+                    >
                         <img
                             src="./images/icon-next.svg"
                             alt=""
@@ -139,7 +148,7 @@
                 <div class="product__lightbox--additional">
                     <button
                         type="button"
-                        class="product__lightbox--additional-thumbnail"
+                        class="product__lightbox--additional-thumbnail selected"
                         value="1"
                     >
                         <img

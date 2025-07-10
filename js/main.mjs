@@ -10,8 +10,16 @@ const quantitySpan = document.getElementById("quantity");
 const quantityMinus = document.getElementById("quantity-minus");
 const quantityPlus = document.getElementById("quantity-plus");
 const addToCartButton = document.getElementById("add-cart");
+const productImage = document.getElementById("product-image");
+const nextImageButton = document.getElementById("next-image");
+const previousImageButton = document.getElementById("previous-image");
+const imageButtons = document.querySelectorAll(
+    ".product__lightbox--additional-thumbnail"
+);
 
 let quantity = 0;
+
+let currentImage = 1;
 
 const product = {
     id: 1,
@@ -32,7 +40,6 @@ const cartQuantity = () => {
         const totalQuantity = cart.reduce((acc, item) => {
             return acc + item.quantity;
         }, 0);
-        console.log(totalQuantity);
         cartQuantitySpan.innerText = totalQuantity;
     }
 };
@@ -134,13 +141,48 @@ const hideShowCart = () => {
 const addOrUpdateCart = () => {
     const [itemExist] = cart.filter((cartItem) => cartItem.id === product.id);
     if (itemExist) {
-        cart.filter((cartItem) => cartItem.id === product.id).map(
-            (item) => (item.quantity = item.quantity + quantity)
-        );
+        cart.filter((cartItem) => cartItem.id === product.id).map((item) => {
+            item.quantity = item.quantity + quantity;
+        });
     } else {
         cart.push(product);
     }
     addToCart();
+};
+
+const changeSelectedImage = () => {
+    imageButtons.forEach((button) => {
+        parseInt(button.value) == currentImage
+            ? button.classList.add("selected")
+            : button.classList.remove("selected");
+    });
+};
+
+const changeImageButton = (evt) => {
+    if (currentImage !== evt.currentTarget.value) {
+        currentImage = evt.currentTarget.value;
+        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+        productImage.style.backgroundPosition = `${
+            currentImage === 1 ? "center" : "top"
+        }`;
+        changeSelectedImage();
+    }
+};
+
+const changeImageSlide = (evt) => {
+    if (evt.currentTarget.id === "previous-image" && currentImage > 1) {
+        currentImage--;
+        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+    }
+
+    if (evt.currentTarget.id === "next-image" && currentImage < 4) {
+        currentImage++;
+        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+    }
+    productImage.style.backgroundPosition = `${
+        currentImage === 1 ? "center 60%" : "top"
+    }`;
+    changeSelectedImage();
 };
 
 hamburger.addEventListener("click", showSidebar);
@@ -148,6 +190,14 @@ hamburger.addEventListener("click", showSidebar);
 closeButton.addEventListener("click", hideSidebar);
 
 cartCheckoutButton.addEventListener("click", hideShowCart);
+
+nextImageButton.addEventListener("click", changeImageSlide);
+
+previousImageButton.addEventListener("click", changeImageSlide);
+
+imageButtons.forEach((button) =>
+    button.addEventListener("click", changeImageButton)
+);
 
 sidebarContainer.addEventListener("click", (e) => {
     if (e.target.id === "sidebar-container") {
@@ -179,11 +229,6 @@ addToCartButton.addEventListener("click", () => {
     quantity = 0;
     quantitySpan.textContent = quantity;
 });
-
-// window.addEventListener("click", (e) => {
-//     if (!cartModal.contains(e.target)) {
-//     }
-// });
 
 window.addEventListener("resize", () => {
     if (this.innerWidth >= 1100) {
