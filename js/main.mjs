@@ -86,12 +86,14 @@ const addToCart = () => {
                     <button
                         id=${item.id}
                         class="header__cart--item-delete"
+                        aria-label="delete button"
+                        type="button"
                     >
                         <img
                             src="./images/icon-delete.svg"
                             alt=""
                         />
-                    </button>
+                    </>
                 </li>`;
         })
         .join("");

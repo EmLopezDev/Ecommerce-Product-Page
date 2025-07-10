@@ -59,6 +59,6 @@
 @media (prefers-reduced-motion) {
     .sidebar {
         right: 0;
-        transition: none;
+        transition: all 200ms;
     }
 }

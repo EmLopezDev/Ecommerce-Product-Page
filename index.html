@@ -40,8 +40,11 @@
         <header class="header">
             <div class="header__navigation">
                 <button
+                    type="button"
                     id="hamburger"
                     class="header__navigation--hamburger"
+                    aria-label="hamburger menu"
+                    type="button"
                 >
                     <img
                         src="./images/icon-menu.svg"
@@ -78,8 +81,10 @@
             </div>
             <div class="header__user">
                 <button
+                    type="button"
                     id="cart-checkout"
                     class="header__user--cart"
+                    aria-label="cart checkout"
                 >
                     <svg
                         width="22"
@@ -108,9 +113,9 @@
                 id="cart-modal"
                 class="header__cart"
             >
-                <header class="header__cart--heading">
+                <div class="header__cart--heading">
                     <h5>Cart</h5>
-                </header>
+                </div>
                 <div
                     id="cart-content"
                     class="header__cart--content empty"
@@ -123,8 +128,10 @@
             <section class="product__lightbox">
                 <div class="product__lightbox--selected">
                     <button
+                        type="button"
                         id="previous-image"
                         class="product__lightbox--selected-button previous"
+                        aria-label="previous button"
                     >
                         <img
                             src="./images/icon-previous.svg"
@@ -136,8 +143,10 @@
                         class="product__lightbox--selected-img"
                     ></div>
                     <button
+                        type="button"
                         id="next-image"
                         class="product__lightbox--selected-button next"
+                        aria-label="next button"
                     >
                         <img
                             src="./images/icon-next.svg"
@@ -150,6 +159,7 @@
                         type="button"
                         class="product__lightbox--additional-thumbnail selected"
                         value="1"
+                        aria-label="image of product"
                     >
                         <img
                             src="./images/image-product-1-thumbnail.jpg"
@@ -160,6 +170,7 @@
                         type="button"
                         class="product__lightbox--additional-thumbnail"
                         value="2"
+                        aria-label="image of product"
                     >
                         <img
                             src="./images/image-product-2-thumbnail.jpg"
@@ -170,6 +181,7 @@
                         type="button"
                         class="product__lightbox--additional-thumbnail"
                         value="3"
+                        aria-label="image of product"
                     >
                         <img
                             src="./images/image-product-3-thumbnail.jpg"
@@ -180,6 +192,7 @@
                         type="button"
                         class="product__lightbox--additional-thumbnail"
                         value="4"
+                        aria-label="image of product"
                     >
                         <img
                             src="./images/image-product-4-thumbnail.jpg"
@@ -212,8 +225,10 @@
                 <div class="product__buttons">
                     <div class="product__buttons--quantity">
                         <button
+                            type="button"
                             id="quantity-minus"
                             class="product__buttons--quantity-button minus"
+                            aria-label="remove one quantity"
                         >
                             <img
                                 src="./images/icon-minus.svg"
@@ -227,8 +242,10 @@
                             0
                         </span>
                         <button
+                            type="button"
                             id="quantity-plus"
                             class="product__buttons--quantity-button plus"
+                            aria-label="add one quantity"
                         >
                             <img
                                 src="./images/icon-plus.svg"
@@ -237,6 +254,7 @@
                         </button>
                     </div>
                     <button
+                        type="button"
                         id="add-cart"
                         class="product__buttons--add"
                     >
@@ -264,8 +282,10 @@
                 class="sidebar"
             >
                 <button
+                    type="button"
                     id="close"
                     class="sidebar__button"
+                    aria-label="close menu"
                 >
                     <img
                         src="./images/icon-close.svg"
@@ -298,29 +318,3 @@
         </aside>
     </body>
 </html>
-
-<!-- <ul class="header__cart--list">
-        <li class="header__cart--item">
-            <img
-                class="header__cart--item-img"
-                src="./images/image-product-1-thumbnail.jpg"
-                alt=""
-            />
-            <div class="header__cart--item-description">
-                Fall Limited Edition Sneakers
-                <span class="header__cart--item-description-price">
-                    $125.00 x 3
-                    <span class="header__cart--item-description-total">
-                        $375.00
-                    </span>
-                </span>
-            </div>
-            <button class="header__cart--item-delete">
-                <img
-                    src="./images/icon-delete.svg"
-                    alt=""
-                />
-            </button>
-        </li>
-    </ul>
-    <button class="header__cart--checkout">Checkout</button> -->
