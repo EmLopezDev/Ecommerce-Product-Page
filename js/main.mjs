@@ -115,7 +115,7 @@ const deleteItem = (e) => {
         return acc;
     }, []);
 
-    cart.splice(index, index + 1);
+    cart.splice(index, 1);
     if (!cart.length) {
         emptyCart();
     } else {
