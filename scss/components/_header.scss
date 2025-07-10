@@ -201,7 +201,11 @@
         &--list {
             display: flex;
             flex-direction: column;
+            height: u.rem(200);
             gap: u.rem(8);
+            padding-block: u.rem(16);
+            margin-block-end: u.rem(8);
+            overflow: auto;
         }
 
         &--item {
