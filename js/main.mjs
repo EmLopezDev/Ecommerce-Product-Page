@@ -26,7 +26,7 @@ let currentImage = 1;
 const product = {
     id: 1,
     name: "Fall Limited Edition Sneakers",
-    img: "../images/image-product-1-thumbnail.jpg",
+    img: "./images/image-product-1-thumbnail.jpg",
     price: 125.0,
     quantity: 0,
 };
@@ -157,7 +157,7 @@ const changeSelectedImage = () => {
 const changeImageButton = (evt) => {
     if (currentImage !== evt.currentTarget.value) {
         currentImage = evt.currentTarget.value;
-        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+        productImage.style.backgroundImage = `url('./images/image-product-${currentImage}.jpg')`;
         productImage.style.backgroundPosition = `${
             currentImage === 1 ? "center" : "top"
         }`;
@@ -168,12 +168,12 @@ const changeImageButton = (evt) => {
 const changeImageSlide = (evt) => {
     if (evt.currentTarget.id === "previous-image" && currentImage > 1) {
         currentImage--;
-        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+        productImage.style.backgroundImage = `url('./images/image-product-${currentImage}.jpg')`;
     }
 
     if (evt.currentTarget.id === "next-image" && currentImage < 4) {
         currentImage++;
-        productImage.style.backgroundImage = `url('../images/image-product-${currentImage}.jpg')`;
+        productImage.style.backgroundImage = `url('./images/image-product-${currentImage}.jpg')`;
     }
     productImage.style.backgroundPosition = `${
         currentImage === 1 ? "center 60%" : "top"
